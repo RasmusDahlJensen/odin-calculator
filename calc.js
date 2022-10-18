@@ -1,3 +1,5 @@
+//Math functions
+
 let add = (num1, num2) => {
 	return console.log(num1 + num2);
 };
@@ -18,6 +20,7 @@ let divide = (num1, num2) => {
 	}
 };
 
+//Operate functions - calls a math function depending on operator
 let operate = (num1, operator, num2) => {
 	if (operator == "add") {
 		add(num1, num2);
@@ -37,4 +40,15 @@ let operate = (num1, operator, num2) => {
 	}
 };
 
-operate(100, "divide", 0);
+//Grab button ID
+let buttons = document.querySelectorAll(".button");
+buttons.forEach((button) => {
+	button.setAttribute("onclick", "buttonId(this.id)");
+});
+
+//Display function
+let resultDisplay = document.getElementById("result");
+let buttonId = (buttonid) => {
+	console.log(buttonid);
+	resultDisplay.innerHTML += buttonid;
+};
