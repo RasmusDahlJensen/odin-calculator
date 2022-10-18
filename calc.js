@@ -68,9 +68,9 @@ operator.forEach((button) => {
 
 //Call the math functions with the values
 let compileContent = () => {
-	TODO: //Apply the first display value to the num2 when i press an operator
-    //and save the operator in the value as well.
-    //When i click the = sign put the second value in num1 and call the operate function with the values
+	// TODO: Apply the first display value to the num2 when i press an operator
+	//and save the operator in the value as well.
+	//When i click the = sign put the second value in num1 and call the operate function with the values
 	let num1;
 	let num2;
 	let operator;
