@@ -28,7 +28,6 @@ let operate = (num1, operator, num2) => {
 
 	if (operator == "subtract") {
 		subtract(num1, num2);
-		console.log(subtract);
 	}
 
 	if (operator == "multiply") {
