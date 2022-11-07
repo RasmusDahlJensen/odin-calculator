@@ -1,36 +1,3 @@
-//Grab button ID
-const buttons = document.querySelectorAll(".button");
-buttons.forEach((button) => {
-	button.setAttribute("onclick", "buttonId(this.id)");
-});
-
-let num1 = [];
-let num2 = [];
-let operatorValue;
-
-//Display function
-const resultDisplay = document.getElementById("result");
-const buttonId = (value) => {
-	num1.push(value);
-	console.log(num1, operatorValue, num2);
-};
-
-//Get all operators
-const operator = document.querySelectorAll(".operator");
-operator.forEach((button) => {
-	button.setAttribute("onclick", "addOperatorValue(this.innerHTML)");
-});
-
-const equals = document.querySelector(".equals");
-equals.addEventListener("click", () => {});
-
-const addOperatorValue = (value) => {
-	operatorValue = value;
-};
-//clear button
-const clear = document.getElementById("clear");
-clear.addEventListener("click", () => {});
-
 const compileNumbers = (num1Value, num2Value, operatorValue) => {
 	console.log(num1Value, num2Value, operatorValue);
 	switch (operatorValue) {
