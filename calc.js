@@ -83,6 +83,8 @@ let compileContent = () => {
 	//TODO: make a backspace button to call the pop() method on the array
 
 	//TODO: Round the numbers and make sure they can't overflow the screen
+
+	//TODO: Make sure the equals = operator can't be used before all of the numbers and operators are used.
 	let num1;
 	let num2;
 	let operator;
