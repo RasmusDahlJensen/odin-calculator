@@ -10,13 +10,9 @@ let operatorValue;
 
 //Display function
 const resultDisplay = document.getElementById("result");
-const buttonId = (buttonid) => {
-	resultDisplay.innerHTML += buttonid;
-	if (operatorValue === undefined) {
-		num1.push(buttonid);
-	} else {
-		num2.push(buttonid);
-	}
+const buttonId = (value) => {
+	num1.push(value);
+	console.log(num1, operatorValue, num2);
 };
 
 //Get all operators
@@ -26,46 +22,14 @@ operator.forEach((button) => {
 });
 
 const equals = document.querySelector(".equals");
-equals.addEventListener("click", () => {
-	if (num2.length > 0) {
-		let completeNumber1 = num1.join("");
-		let completeNumber2 = num2.join("");
-		compileNumbers(completeNumber1, completeNumber2, operatorValue);
-	}
-});
+equals.addEventListener("click", () => {});
 
 const addOperatorValue = (value) => {
-	const history = document.getElementById("history");
-	const operatorDisplay = document.getElementById("operator");
-	if (num1.length === 0) {
-		return;
-	} else {
-		operatorValue = value;
-		operatorDisplay.innerHTML = operatorValue;
-	}
-	if (num2.length > 0) {
-		let completeNumber1 = num1.join("");
-		let completeNumber2 = num2.join("");
-		compileNumbers(completeNumber1, completeNumber2, operatorValue);
-	}
-
-	//FIXME: You can add a operator before the first value
-	history.innerHTML = resultDisplay.innerHTML;
-	resultDisplay.innerHTML = "";
+	operatorValue = value;
 };
-
 //clear button
-const history = document.getElementById("history");
-const operatorDisplay = document.getElementById("operator");
 const clear = document.getElementById("clear");
-clear.addEventListener("click", () => {
-	resultDisplay.innerHTML = "";
-	num1 = [];
-	num2 = [];
-	history.innerHTML = "";
-	operatorDisplay.innerHTML = "";
-	operatorValue = undefined;
-});
+clear.addEventListener("click", () => {});
 
 const compileNumbers = (num1Value, num2Value, operatorValue) => {
 	console.log(num1Value, num2Value, operatorValue);
@@ -74,13 +38,13 @@ const compileNumbers = (num1Value, num2Value, operatorValue) => {
 			add(+num1Value, +num2Value);
 			break;
 		case "-":
-			console.log("minus");
+			subtract(+num1Value, +num2Value);
 			break;
 		case "*":
-			console.log("times");
+			multiply(+num1Value, num2Value);
 			break;
 		case "/":
-			console.log("divide");
+			divide(+num1Value, +num2Value);
 			break;
 
 		default:
@@ -90,19 +54,10 @@ const compileNumbers = (num1Value, num2Value, operatorValue) => {
 
 //Math functions
 
-const clearDisplay = () => {
-	history.innerHTML = "";
-	operatorDisplay.innerHTML = "";
-	operatorValue = undefined;
-	resultDisplay.innerHTML = "";
-	num1 = [];
-};
+const clearDisplay = () => {};
 
 const add = (num1, num2) => {
-	clearDisplay();
-	let result = num1 + num2;
-	num2 = result;
-	return (history.innerHTML = num1 + num2);
+	return console.log(num1 + num2);
 };
 
 const subtract = (num1, num2) => {
