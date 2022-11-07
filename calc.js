@@ -67,9 +67,22 @@ operator.forEach((button) => {
 
 //Call the math functions with the values
 let compileContent = () => {
-	// TODO: Apply the first display value to the num2 when i press an operator
-	//and save the operator in the value as well.
-	//When i click the = sign put the second value in num1 and call the operate function with the values
+	//TODO: Have a history display on the calculator to show the last two operations
+
+	// TODO: Only have the calculator evaluate a single number at a time
+	//When there's two numbers already being evaluated pressing an operator should equal the previous two numbers together
+	//And then incoorporate the new number
+	//For example if i do 5+5 and then press - it should do the first calculation to 10 and then it should listen to what it should
+	//Minus with
+
+	//TODO: Have each number and each decimal be input into an array
+	//let num1 and num2 be an empty array and use the push() method to add new numbers to the end
+	//and use join("") to join them together when they need to be evaluated
+	//Maybe create new variables for the array and put them into another variable when joined
+
+	//TODO: make a backspace button to call the pop() method on the array
+
+	//TODO: Round the numbers and make sure they can't overflow the screen
 	let num1;
 	let num2;
 	let operator;
