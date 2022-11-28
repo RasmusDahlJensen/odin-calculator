@@ -2,6 +2,10 @@ let num1 = [];
 let num2 = [];
 let operatorValue;
 
+//TODO: Gem historik værdien i num2
+//Få operatoren til at kalde udregningsfunktionen hvis num2 findes
+//Ellers så skub num1 til at være num2 hvis num2 ikke findes og man trykker på en operator
+
 //Grab button ID
 const buttons = document.querySelectorAll(".button");
 buttons.forEach((button) => {
