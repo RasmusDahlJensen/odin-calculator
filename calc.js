@@ -1,5 +1,5 @@
-let num1 = [];
-let num2 = [];
+let num1;
+let num2;
 let operatorValue;
 
 //TODO: Gem historik værdien i num2
