@@ -12,15 +12,11 @@ buttons.forEach((button) => {
 const firstNumber = document.getElementById("firstNumber");
 const secondNumber = document.getElementById("secondNumber");
 
-let num1 = firstNumber.innerHTML;
+let num1;
 let num2;
 let operatorValue;
 
 const buttonId = (value) => {
-	if (num1 === 0) {
-		firstNumber.innerHTML = "";
-	}
-	console.log(num1);
 	firstNumber.innerHTML += value;
 };
 
@@ -31,22 +27,31 @@ operator.forEach((button) => {
 });
 
 const equals = document.querySelector(".equals");
-equals.addEventListener("click", () => {});
+equals.addEventListener("click", () => {
+	// console.log("equals work");
+	processNumbers();
+});
+
+const addOperatorValue = (value) => {
+	const operatorDisplay = document.getElementById("operator");
+	operatorValue = value;
+	operatorDisplay.innerHTML = operatorValue;
+	let num1 = firstNumber.innerHTML;
+	processNumbers(num1);
+};
+
+const processNumbers = (num1) => {
+	if (typeof num2 === "undefined") {
+		num2 = +num1;
+		num1 = "";
+	} else if (typeof num2 === "number") {
+		compileNumbers(num1, num2, operatorValue);
+	}
+};
 
 //clear button
 const clear = document.getElementById("clear");
 clear.addEventListener("click", () => {});
-
-const addOperatorValue = (value) => {
-	const operatorDisplay = document.getElementById("operator");
-	if (num1.length === 0) {
-		return;
-	} else {
-		operatorValue = value;
-		operatorDisplay.innerHTML = operatorValue;
-	}
-	compileNumbers();
-};
 
 const compileNumbers = (num1Value, num2Value, operatorValue) => {
 	console.log(num1Value, num2Value, operatorValue);
