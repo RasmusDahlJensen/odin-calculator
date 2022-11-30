@@ -40,33 +40,43 @@ const addOperatorValue = (value) => {
 	processNumbers(num1);
 };
 
-const processNumbers = (num1) => {
+const processNumbers = (num1Value) => {
 	if (typeof num2 === "undefined") {
-		num2 = +num1;
+		num2 = +num1Value;
 		num1 = "";
+		secondNumber.innerHTML = num2;
+		firstNumber.innerHTML = "";
 	} else if (typeof num2 === "number") {
+		let num1 = firstNumber.innerHTML;
 		compileNumbers(num1, num2, operatorValue);
 	}
 };
 
 //clear button
 const clear = document.getElementById("clear");
-clear.addEventListener("click", () => {});
+clear.addEventListener("click", () => {
+	num1 = "";
+	num2 = "";
+	firstNumber.innerHTML = "";
+	secondNumber.innerHTML = "";
+	operatorValue = "";
+});
 
 const compileNumbers = (num1Value, num2Value, operatorValue) => {
 	console.log(num1Value, num2Value, operatorValue);
 	switch (operatorValue) {
 		case "+":
-			add(+num1Value, +num2Value);
+			add(+num2Value, +num1Value);
 			break;
 		case "-":
-			subtract(+num1Value, +num2Value);
+			subtract(+num2Value, +num1Value);
+
 			break;
 		case "*":
-			multiply(+num1Value, num2Value);
+			multiply(+num2Value, num1Value);
 			break;
 		case "/":
-			divide(+num1Value, +num2Value);
+			divide(+num2Value, +num1Value);
 			break;
 
 		default:
