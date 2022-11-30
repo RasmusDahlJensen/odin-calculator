@@ -1,7 +1,3 @@
-let num1;
-let num2;
-let operatorValue;
-
 //TODO: Gem historik værdien i num2
 //Få operatoren til at kalde udregningsfunktionen hvis num2 findes
 //Ellers så skub num1 til at være num2 hvis num2 ikke findes og man trykker på en operator
@@ -13,8 +9,20 @@ buttons.forEach((button) => {
 });
 
 //Display function
-const resultDisplay = document.getElementById("result");
-const buttonId = (value) => {};
+const firstNumber = document.getElementById("firstNumber");
+const secondNumber = document.getElementById("secondNumber");
+
+let num1 = firstNumber.innerHTML;
+let num2;
+let operatorValue;
+
+const buttonId = (value) => {
+	if (num1 === 0) {
+		firstNumber.innerHTML = "";
+	}
+	console.log(num1);
+	firstNumber.innerHTML += value;
+};
 
 //Get all operators
 const operator = document.querySelectorAll(".operator");
@@ -28,6 +36,17 @@ equals.addEventListener("click", () => {});
 //clear button
 const clear = document.getElementById("clear");
 clear.addEventListener("click", () => {});
+
+const addOperatorValue = (value) => {
+	const operatorDisplay = document.getElementById("operator");
+	if (num1.length === 0) {
+		return;
+	} else {
+		operatorValue = value;
+		operatorDisplay.innerHTML = operatorValue;
+	}
+	compileNumbers();
+};
 
 const compileNumbers = (num1Value, num2Value, operatorValue) => {
 	console.log(num1Value, num2Value, operatorValue);
