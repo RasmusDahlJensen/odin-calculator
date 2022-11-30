@@ -74,7 +74,7 @@ const clear = document.getElementById("clear");
 clear.addEventListener("click", clearFunc);
 
 const compileNumbers = (num1Value, num2Value, operatorValue) => {
-	console.log(num1Value, num2Value, operatorValue);
+	console.log(num2Value, operatorValue, num1Value);
 	switch (operatorValue) {
 		case "+":
 			add(+num2Value, +num1Value);
