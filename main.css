@@ -99,8 +99,8 @@
   gap: 1%;
 }
 
-#result {
-  margin: 0 3% 3% 3%;
+#firstNumber {
+  margin: 0 3% 1% 3%;
   font-size: 40px;
   width: 90%;
   text-align: end;
@@ -108,10 +108,11 @@
 
 #histOp {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-end;
   justify-content: flex-end;
   gap: 2%;
-  margin: 0 5% 1% 5%;
+  margin: 0 5% 0 0;
   width: 90%;
   height: 30%;
 }/*# sourceMappingURL=main.css.map */
