@@ -1,2 +1,2 @@
 # odin-calculator
- for the odin project
+https://heartfelt-flan-1afdb8.netlify.app/
