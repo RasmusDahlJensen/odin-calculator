@@ -12,12 +12,13 @@ buttons.forEach((button) => {
 const firstNumber = document.getElementById("firstNumber");
 const secondNumber = document.getElementById("secondNumber");
 
-let num1;
-let num2;
+let num1 = undefined;
+let num2 = undefined;
 let operatorValue;
 
 const buttonId = (value) => {
 	firstNumber.innerHTML += value;
+	num1 = firstNumber.innerHTML;
 };
 
 //Get all operators
@@ -34,10 +35,16 @@ equals.addEventListener("click", () => {
 
 const addOperatorValue = (value) => {
 	const operatorDisplay = document.getElementById("operator");
-	operatorValue = value;
-	operatorDisplay.innerHTML = operatorValue;
-	let num1 = firstNumber.innerHTML;
-	processNumbers(num1);
+	if (num1 === undefined) {
+		operatorValue = value;
+		operatorDisplay.innerHTML = operatorValue;
+		return;
+	} else {
+		operatorValue = value;
+		operatorDisplay.innerHTML = operatorValue;
+		let num1 = firstNumber.innerHTML;
+		processNumbers(num1);
+	}
 };
 
 const processNumbers = (num1Value) => {
@@ -52,15 +59,19 @@ const processNumbers = (num1Value) => {
 	}
 };
 
-//clear button
-const clear = document.getElementById("clear");
-clear.addEventListener("click", () => {
-	num1 = "";
-	num2 = "";
+const clearFunc = () => {
+	const operatorDisplay = document.getElementById("operator");
+	num1 = undefined;
+	num2 = undefined;
 	firstNumber.innerHTML = "";
 	secondNumber.innerHTML = "";
-	operatorValue = "";
-});
+	operatorDisplay.innerHTML = "";
+	operatorValue = undefined;
+};
+
+//clear button
+const clear = document.getElementById("clear");
+clear.addEventListener("click", clearFunc);
 
 const compileNumbers = (num1Value, num2Value, operatorValue) => {
 	console.log(num1Value, num2Value, operatorValue);
@@ -89,35 +100,27 @@ const compileNumbers = (num1Value, num2Value, operatorValue) => {
 const clearDisplay = () => {};
 
 const add = (num1, num2) => {
-	return console.log(num1 + num2);
+	displayResult(num1 + num2);
 };
 
 const subtract = (num1, num2) => {
-	return console.log(num1 - num2);
+	displayResult(num1 - num2);
 };
 
 const multiply = (num1, num2) => {
-	return console.log(num1 * num2);
+	displayResult(num1 * num2);
 };
 
 const divide = (num1, num2) => {
 	if (!num1 > 0 || !num2 > 0) {
 		return console.log("ERROR");
 	} else {
-		return console.log(num1 / num2);
+		displayResult(num1 / num2);
 	}
 };
 
-//TODO: Have a history display on the calculator to show the last two operations
-// TODO: Only have the calculator evaluate a single number at a time
-//When there's two numbers already being evaluated pressing an operator should equal the previous two numbers together
-//And then incoorporate the new number
-//For example if i do 5+5 and then press - it should do the first calculation to 10 and then it should listen to what it should
-//Minus with
-//TODO: Have each number and each decimal be input into an array
-//let num1 and num2 be an empty array and use the push() method to add new numbers to the end
-//and use join("") to join them together when they need to be evaluated
-//Maybe create new variables for the array and put them into another variable when joined
-//TODO: make a backspace button to call the pop() method on the array
-//TODO: Round the numbers and make sure they can't overflow the screen and limit to only 1 decimal per number
-//TODO: Make sure the equals = operator can't be used before all of the numbers and operators are used.
+const displayResult = (result) => {
+	clearFunc();
+	num2 = result;
+	secondNumber.innerHTML = result;
+};
